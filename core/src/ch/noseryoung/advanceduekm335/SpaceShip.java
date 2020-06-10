@@ -27,5 +27,6 @@ public class SpaceShip {
 
     public void dispose() {
         img.dispose();
+
     }
 }

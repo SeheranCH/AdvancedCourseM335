@@ -26,7 +26,7 @@ public class MainMenuScreen implements Screen {
 
     public MainMenuScreen(Game parent) {
         this.parent = parent;
-        atlas = new TextureAtlas("skin/vvhs-ui.atlas");
+        atlas = new TextureAtlas("skin/vhs-ui.atlas");
         skin = new Skin(Gdx.files.internal("skin/vhs-ui.json"));
 
         spriteBatch = new SpriteBatch();
