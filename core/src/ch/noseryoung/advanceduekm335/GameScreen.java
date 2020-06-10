@@ -15,8 +15,10 @@ public class GameScreen implements Screen {
 
     public GameScreen(Game parent){
         batch = new SpriteBatch();
-        img = new Texture("spaceship.png");
+        img = new Texture("spaceshipEdited.png");
         sprite = new Sprite(img);
+        sprite.setX(0);
+        sprite.setY(0);
     }
 
     @Override
@@ -26,19 +28,17 @@ public class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0,0,0, 1);
+        Gdx.gl.glClearColor(0,1,0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
         sprite.draw(batch);
-        sprite.setScale(0.5f);
         batch.end();
 
     }
 
     @Override
     public void resize(int width, int height) {
-
     }
 
     @Override
