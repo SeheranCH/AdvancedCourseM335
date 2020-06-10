@@ -10,13 +10,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameScreen implements Screen {
     private SpriteBatch batch;
-    private Sprite shipSprite;
+    private Sprite sprite;
     private final Texture img;
 
     public GameScreen(Game parent){
         batch = new SpriteBatch();
         img = new Texture("spaceship.png");
-        shipSprite = new Sprite(img);
+        sprite = new Sprite(img);
     }
 
     @Override
@@ -30,7 +30,8 @@ public class GameScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
-        shipSprite.draw(batch);
+        sprite.draw(batch);
+        sprite.setScale(0.5f);
         batch.end();
 
     }
@@ -57,6 +58,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        img.dispose();
+        batch.dispose();
     }
 }
