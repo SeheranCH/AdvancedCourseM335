@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -27,7 +28,7 @@ public class MainMenuScreen implements Screen {
 
     public MainMenuScreen(Game parent) {
         this.parent = parent;
-        atlas = new TextureAtlas("skin/vvhs-ui.atlas");
+        atlas = new TextureAtlas("skin/vhs-ui.atlas");
         skin = new Skin(Gdx.files.internal("skin/vhs-ui.json"));
 
         spriteBatch = new SpriteBatch();
@@ -61,6 +62,17 @@ public class MainMenuScreen implements Screen {
                 Gdx.app.exit();
             }
         });
+
+        Table table = new Table();
+        table.setFillParent(true);
+        table.center();
+        table.add(playButton);
+        table.row();
+        table.add(optionsButton);
+        table.row();
+        table.add(exitButton);
+
+        stage.addActor(table);
     }
 
     @Override
