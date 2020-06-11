@@ -11,20 +11,15 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GameScreen implements Screen {
     private SpriteBatch batch;
-    private Sprite sprite;
-    private final Texture img;
     private final Texture bgTexture;
     private Sprite bgSprite;
     private SpaceShip spaceShip;
 
-    public boolean touched = false;
-
     public GameScreen(Game parent){
         batch = new SpriteBatch();
-        img = new Texture("spaceshipEdited.png");
-        sprite = new Sprite(img);
         bgTexture = new Texture("background.png");
         bgSprite = new Sprite(bgTexture);
+        spaceShip = new SpaceShip();
     }
 
     @Override
@@ -37,15 +32,11 @@ public class GameScreen implements Screen {
         Gdx.gl.glClearColor(0,0,0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        if (Gdx.input.isTouched()) {
-            float sizeWidth = sprite.getHeight();
-            sprite.setY(Gdx.graphics.getHeight() - Gdx.input.getY() - sizeWidth);
-        }
-
         batch.begin();
         bgSprite.draw(batch);
-        sprite.draw(batch);
         batch.end();
+
+        spaceShip.render(batch);
 
     }
 
@@ -70,7 +61,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void dispose() {
-        img.dispose();
+        spaceShip.dispose();
         batch.dispose();
     }
 }
