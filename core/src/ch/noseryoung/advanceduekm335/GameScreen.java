@@ -40,8 +40,6 @@ public class GameScreen implements Screen {
             sprite.setY(Gdx.graphics.getHeight() - Gdx.input.getY() - sizeWidth);
         }
 
-
-
         batch.begin();
         sprite.draw(batch);
         batch.end();
