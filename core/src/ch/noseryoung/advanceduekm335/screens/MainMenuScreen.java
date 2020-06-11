@@ -1,4 +1,4 @@
-package ch.noseryoung.advanceduekm335;
+package ch.noseryoung.advanceduekm335.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -15,6 +15,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+
+import ch.noseryoung.advanceduekm335.screens.GameScreen;
 
 public class MainMenuScreen implements Screen {
 

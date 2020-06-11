@@ -1,4 +1,4 @@
-package ch.noseryoung.advanceduekm335;
+package ch.noseryoung.advanceduekm335.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -8,29 +8,33 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import ch.noseryoung.advanceduekm335.objects.Asteroid;
+import ch.noseryoung.advanceduekm335.objects.Explosion;
+import ch.noseryoung.advanceduekm335.objects.SpaceShip;
+
 
 public class GameScreen implements Screen {
     private SpriteBatch batch;
     private final Texture bgTexture;
     private Sprite bgSprite;
-    private SpaceShip spaceShip;
-    private Asteroid aestorid;
-    private Explosion explosion;
+    private ch.noseryoung.advanceduekm335.objects.SpaceShip spaceShip;
+    private ch.noseryoung.advanceduekm335.objects.Asteroid aestorid;
+    private ch.noseryoung.advanceduekm335.objects.Explosion explosion;
 
-    private Asteroid aestorid1;
-    private Asteroid aestorid2;
-    private Asteroid aestorid3;
+    private ch.noseryoung.advanceduekm335.objects.Asteroid aestorid1;
+    private ch.noseryoung.advanceduekm335.objects.Asteroid aestorid2;
+    private ch.noseryoung.advanceduekm335.objects.Asteroid aestorid3;
 
     public GameScreen(Game parent){
         batch = new SpriteBatch();
         bgTexture = new Texture("background.png");
         bgSprite = new Sprite(bgTexture);
         spaceShip = new SpaceShip();
-        aestorid = new Asteroid();
+        aestorid = new ch.noseryoung.advanceduekm335.objects.Asteroid();
         explosion = new Explosion();
 
-        aestorid1 = new Asteroid();
-        aestorid2 = new Asteroid();
+        aestorid1 = new ch.noseryoung.advanceduekm335.objects.Asteroid();
+        aestorid2 = new ch.noseryoung.advanceduekm335.objects.Asteroid();
         aestorid3 = new Asteroid();
     }
 

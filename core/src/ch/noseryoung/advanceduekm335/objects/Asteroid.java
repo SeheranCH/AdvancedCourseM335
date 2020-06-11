@@ -1,30 +1,37 @@
-package ch.noseryoung.advanceduekm335;
+package ch.noseryoung.advanceduekm335.objects;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
-public class SpaceShip extends Rectangle {
+import java.util.Random;
+
+public class Asteroid extends Rectangle {
 
     private SpriteBatch batch;
     private Sprite sprite;
     private final Texture img;
+    Random r = new Random();
+    int min = 0;
+    int max = Gdx.graphics.getHeight();
+    int resultX;
+    int resultY;
 
-    public SpaceShip(){
+
+    public Asteroid(){
         batch = new SpriteBatch();
-        img = new Texture("spaceshipEdited.png");
+        img = new Texture("asteroid.png");
         sprite = new Sprite(img);
+        resultY = r.nextInt(max-min) + min;
     }
 
     public void render(SpriteBatch batch){
+        resultX = (int) (Gdx.graphics.getWidth() - sprite.getWidth());
 
-        if (Gdx.input.isTouched()) {
-            float sizeWidth = sprite.getHeight();
-            sprite.setY(Gdx.graphics.getHeight() - Gdx.input.getY() - sizeWidth);
-        }
+        sprite.setPosition(resultX, resultY);
 
         batch.begin();
         sprite.draw(batch);
@@ -34,18 +41,5 @@ public class SpaceShip extends Rectangle {
     public void dispose() {
         img.dispose();
         batch.dispose();
-    }
-
-    public SpriteBatch getBatch() {
-        return batch;
-    }
-
-    public Sprite getSprite() {
-        return sprite;
-    }
-
-
-    public Texture getImg() {
-        return img;
     }
 }

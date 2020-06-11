@@ -1,4 +1,4 @@
-package ch.noseryoung.advanceduekm335;
+package ch.noseryoung.advanceduekm335.objects;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;

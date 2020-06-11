@@ -1,6 +1,8 @@
-package ch.noseryoung.advanceduekm335;
+package ch.noseryoung.advanceduekm335.screens;
 
 import com.badlogic.gdx.Game;
+
+import ch.noseryoung.advanceduekm335.screens.MainMenuScreen;
 
 
 public class SpaceGame extends Game {
