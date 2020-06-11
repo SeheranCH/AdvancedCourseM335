@@ -1,21 +1,21 @@
 package ch.noseryoung.advanceduekm335;
 
-import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-import sun.rmi.runtime.Log;
 
 public class GameScreen implements Screen {
     private SpriteBatch batch;
     private Sprite sprite;
     private final Texture img;
+    private final Texture bgTexture;
+    private Sprite bgSprite;
+    private SpaceShip spaceShip;
 
     public boolean touched = false;
 
@@ -23,6 +23,8 @@ public class GameScreen implements Screen {
         batch = new SpriteBatch();
         img = new Texture("spaceshipEdited.png");
         sprite = new Sprite(img);
+        bgTexture = new Texture("background.png");
+        bgSprite = new Sprite(bgTexture);
     }
 
     @Override
@@ -32,7 +34,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0,1,0, 0);
+        Gdx.gl.glClearColor(0,0,0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         if (Gdx.input.isTouched()) {
@@ -41,6 +43,7 @@ public class GameScreen implements Screen {
         }
 
         batch.begin();
+        bgSprite.draw(batch);
         sprite.draw(batch);
         batch.end();
 
