@@ -10,6 +10,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.ArrayList;
 
 import ch.noseryoung.advanceduekm335.core.BasicScreen;
+
+import java.util.List;
+
+import ch.noseryoung.advanceduekm335.objects.Asteroid;
 import ch.noseryoung.advanceduekm335.objects.Explosion;
 import ch.noseryoung.advanceduekm335.objects.SpaceShip;
 
@@ -22,6 +26,7 @@ public class GameScreen extends BasicScreen {
     private SpaceShip spaceShip;
     private ArrayList<Explosion> explosions;
     private float x, y;
+    private List<Asteroid> asteroids;
 
     public GameScreen(Game parent) {
         batch = new SpriteBatch();
@@ -31,6 +36,10 @@ public class GameScreen extends BasicScreen {
         explosions = new ArrayList<>();
         y = 15;
         x = Gdx.graphics.getWidth() / 2 - spaceShip.getWidth() / 2;
+        asteroids = new ArrayList<>();
+        asteroids.add(new Asteroid());
+        asteroids.add(new Asteroid());
+        asteroids.add(new Asteroid());
     }
 
     @Override
@@ -61,15 +70,24 @@ public class GameScreen extends BasicScreen {
 
         spaceShip.render(batch);
 
-        for(Explosion explosion: explosions){
+        for (Explosion explosion : explosions) {
             explosion.render(batch);
         }
 
+        for (Asteroid asteroid : asteroids) {
+            asteroid.render(batch);
+        }
     }
 
     @Override
     public void dispose() {
         spaceShip.dispose();
         batch.dispose();
+        for (Asteroid asteroid : asteroids) {
+            asteroid.dispose();
+        }
+        for (Explosion explosion : explosions) {
+            explosion.dispose();
+        }
     }
 }

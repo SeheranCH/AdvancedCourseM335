@@ -2,7 +2,7 @@ package ch.noseryoung.advanceduekm335.core;
 
 import com.badlogic.gdx.Screen;
 
-public class BasicScreen implements Screen {
+public abstract class BasicScreen implements Screen {
 
     @Override
     public void show() {
