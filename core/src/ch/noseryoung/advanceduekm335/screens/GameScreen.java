@@ -37,9 +37,9 @@ public class GameScreen extends BasicScreen {
         y = 15;
         x = Gdx.graphics.getWidth() / 2 - spaceShip.getWidth() / 2;
         asteroids = new ArrayList<>();
-        asteroids.add(new Asteroid());
-        asteroids.add(new Asteroid());
-        asteroids.add(new Asteroid());
+        for (int i = 0; i < 20; i++) {
+            asteroids.add(new Asteroid());
+        }
     }
 
     @Override
