@@ -16,9 +16,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import ch.noseryoung.advanceduekm335.core.BasicScreen;
 import ch.noseryoung.advanceduekm335.screens.GameScreen;
 
-public class MainMenuScreen implements Screen {
+public class MainMenuScreen extends BasicScreen {
 
     SpriteBatch spriteBatch;
     Stage stage;
@@ -91,21 +92,6 @@ public class MainMenuScreen implements Screen {
         viewport.update(width, height);
         camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
         camera.update();
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void hide() {
-
     }
 
     @Override

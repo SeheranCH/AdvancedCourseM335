@@ -16,7 +16,6 @@ public class Explosion extends Rectangle {
     private TextureRegion[][] regions;
     private int frame = 0;
     private int line = 0;
-    //private Texture spaceship = new Texture("spaceshipEdited.png");
 
     public Explosion() {
         batch = new SpriteBatch();

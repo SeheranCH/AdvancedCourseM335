@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
+import java.util.logging.Logger;
+
 public class SpaceShip extends Rectangle {
 
     private SpriteBatch batch;
@@ -20,7 +22,6 @@ public class SpaceShip extends Rectangle {
     }
 
     public void render(SpriteBatch batch){
-
         if (Gdx.input.isTouched()) {
             float sizeWidth = sprite.getHeight();
             sprite.setY(Gdx.graphics.getHeight() - Gdx.input.getY() - sizeWidth);
@@ -29,6 +30,14 @@ public class SpaceShip extends Rectangle {
         batch.begin();
         sprite.draw(batch);
         batch.end();
+    }
+
+    public float getXCoordinate() {
+        return sprite.getX();
+    }
+
+    public float getYCoordinate() {
+        return sprite.getY();
     }
 
     public void dispose() {

@@ -8,39 +8,34 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import ch.noseryoung.advanceduekm335.core.BasicScreen;
 import ch.noseryoung.advanceduekm335.objects.Asteroid;
 import ch.noseryoung.advanceduekm335.objects.Explosion;
 import ch.noseryoung.advanceduekm335.objects.SpaceShip;
 
 
-public class GameScreen implements Screen {
+public class GameScreen extends BasicScreen {
     private SpriteBatch batch;
     private final Texture bgTexture;
     private Sprite bgSprite;
-    private ch.noseryoung.advanceduekm335.objects.SpaceShip spaceShip;
-    private ch.noseryoung.advanceduekm335.objects.Asteroid aestorid;
-    private ch.noseryoung.advanceduekm335.objects.Explosion explosion;
+    private SpaceShip spaceShip;
+    private Explosion explosion;
+    private List<Asteroid> asteroids;
 
-    private ch.noseryoung.advanceduekm335.objects.Asteroid aestorid1;
-    private ch.noseryoung.advanceduekm335.objects.Asteroid aestorid2;
-    private ch.noseryoung.advanceduekm335.objects.Asteroid aestorid3;
 
     public GameScreen(Game parent){
         batch = new SpriteBatch();
         bgTexture = new Texture("background.png");
         bgSprite = new Sprite(bgTexture);
         spaceShip = new SpaceShip();
-        aestorid = new ch.noseryoung.advanceduekm335.objects.Asteroid();
         explosion = new Explosion();
-
-        aestorid1 = new ch.noseryoung.advanceduekm335.objects.Asteroid();
-        aestorid2 = new ch.noseryoung.advanceduekm335.objects.Asteroid();
-        aestorid3 = new Asteroid();
-    }
-
-    @Override
-    public void show() {
-
+        asteroids = new ArrayList<>();
+        asteroids.add(new Asteroid());
+        asteroids.add(new Asteroid());
+        asteroids.add(new Asteroid());
     }
 
     @Override
@@ -53,32 +48,11 @@ public class GameScreen implements Screen {
         batch.end();
 
         spaceShip.render(batch);
-        aestorid.render(batch);
         explosion.render(batch, spaceShip);
 
-        aestorid1.render(batch);
-        aestorid2.render(batch);
-        aestorid3.render(batch);
-
-    }
-
-    @Override
-    public void resize(int width, int height) {
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void hide() {
-
+        for (Asteroid asteroid : asteroids) {
+            asteroid.render(batch);
+        }
     }
 
     @Override
