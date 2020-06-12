@@ -2,7 +2,6 @@ package ch.noseryoung.advanceduekm335.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -25,8 +24,7 @@ public class GameScreen extends BasicScreen {
     private Explosion explosion;
     private List<Asteroid> asteroids;
 
-
-    public GameScreen(Game parent){
+    public GameScreen(Game parent) {
         batch = new SpriteBatch();
         bgTexture = new Texture("background.png");
         bgSprite = new Sprite(bgTexture);
@@ -40,7 +38,7 @@ public class GameScreen extends BasicScreen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0,0,0, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
@@ -55,9 +53,12 @@ public class GameScreen extends BasicScreen {
         }
     }
 
-    @Override
-    public void dispose() {
-        spaceShip.dispose();
-        batch.dispose();
+        @Override
+        public void dispose () {
+            spaceShip.dispose();
+            batch.dispose();
+            for (Asteroid asteroid : asteroids) {
+                asteroid.dispose();
+            }
+        }
     }
-}

@@ -1,7 +1,6 @@
 package ch.noseryoung.advanceduekm335.objects;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -19,7 +18,6 @@ public class Asteroid extends Rectangle {
     int max = Gdx.graphics.getHeight();
     int resultX;
     int resultY;
-
 
     public Asteroid(){
         batch = new SpriteBatch();
